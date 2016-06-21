@@ -4,7 +4,8 @@
   "description": "A demo chat app showing redux-saga-sc in action",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node src/server"
   },
   "engines": {
     "node": "6.2.0",
@@ -19,5 +20,31 @@
   "bugs": {
     "url": "https://github.com/stipsan/redux-saga-sc-demo/issues"
   },
-  "homepage": "https://github.com/stipsan/redux-saga-sc-demo#readme"
+  "homepage": "https://github.com/stipsan/redux-saga-sc-demo#readme",
+  "dependencies": {
+    "classnames": "2.2.5",
+    "classnames-loader": "1.0.0",
+    "compression": "1.6.2",
+    "css-loader": "0.23.1",
+    "express": "4.14.0",
+    "express-history-spa-fallback": "3.0.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
+    "json-loader": "0.5.4",
+    "less-loader": "2.2.3",
+    "react": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-redux": "4.4.5",
+    "redux": "3.5.2",
+    "redux-saga": "0.10.5",
+    "redux-saga-sc": "1.1.1",
+    "socketcluster": "4.6.2",
+    "socketcluster-client": "4.3.19",
+    "style-loader": "0.13.1",
+    "uikit": "2.26.3",
+    "uikit-loader": "1.0.0",
+    "url-loader": "0.5.7",
+    "uws": "0.5.1",
+    "webpack": "1.13.1"
+  }
 }
