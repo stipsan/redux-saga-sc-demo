@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "6.2.0",
+    "npm": "3.9.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stipsan/redux-saga-sc-demo.git"
