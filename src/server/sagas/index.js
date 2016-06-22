@@ -1,16 +1,10 @@
 import { watchRemote } from 'redux-saga-sc'
 
-/*
-import {
-  watchMessages,
-  watchViewer,
-} from './exports'
-//*/
+import { watchMessages } from './messages'
 
-export default function *sagas(socket, database, redis) {
+export default function *sagas(socket) {
   yield [
-    //watchViewer(),
-    //watchMessages(),
+    watchMessages(),
     watchRemote(socket)
   ]
 }

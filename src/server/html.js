@@ -25,7 +25,7 @@ export default () => fallback((req, res, next) => {
 <body>
   <div id="app"></div>
   ${analytics}
-  <script src="/app.js"></script>
+  <script src="http://localhost:8080/app.js"></script>
 </body>
 </html>`
 

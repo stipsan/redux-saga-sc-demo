@@ -32,9 +32,9 @@ let plugins = 'production' === process.env.NODE_ENV ? [
   }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
-  new webpack.DefinePlugin(Object.assign({}, provideDefaults, {
+  new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-  })),
+  }),
 ]
 
 plugins = plugins.concat(new ExtractTextPlugin('[chunkhash].css', {
@@ -99,7 +99,7 @@ module.exports = {
         'classnames',
         ExtractTextPlugin.extract(
            'style',
-           `css?${cssnanoOptIn}!autoprefixer!less!uikit`
+           `css?!autoprefixer!less!uikit`
          )
       ] },
       { test: /\.svg$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
