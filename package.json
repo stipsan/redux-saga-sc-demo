@@ -45,7 +45,7 @@
     "react-redux": "4.4.5",
     "redux": "3.5.2",
     "redux-saga": "0.10.5",
-    "redux-saga-sc": "1.1.1",
+    "redux-saga-sc": "1.1.2",
     "socketcluster": "4.6.2",
     "socketcluster-client": "4.3.19",
     "stattic-parseurl": "0.1.0",
