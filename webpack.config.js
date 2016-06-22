@@ -57,12 +57,12 @@ plugins = plugins.concat(new webpack.ProvidePlugin({
 }))
 
 const entry = 'production' === process.env.NODE_ENV ? {
-  client: [
+  app: [
     'babel-polyfill',
     './src/client/index',
   ],
 } : {
-  client: [
+  app: [
     `webpack-dev-server/client?http://${devServerHostName}:${devServerPort}/`,
     'webpack/hot/dev-server',
     'babel-polyfill',
