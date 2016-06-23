@@ -21,11 +21,12 @@ export default () => fallback((req, res, next) => {
 
   <title>Demo Chat App - redux-saga-sc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/9dbc42abcbbe5fd70cb1.css" />
 </head>
 <body>
   <div id="app"></div>
   ${analytics}
-  <script src="http://localhost:8080/app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>`
 

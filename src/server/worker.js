@@ -15,10 +15,24 @@ export const run = worker => {
   app.use(compression())
 
   app.use(express.static('public', { maxAge: 86400000 * 365, index: false }))
+  app.use(express.static('public', { index: 'index.html' }))
 
   app.use(html())
 
   worker.httpServer.on('request', app)
 
-  worker.scServer.on('connection', socket => createStore(socket))
+  const exchange = worker.exchange
+  exchange.get('messages', (err, messages) => {
+    if(messages === undefined) {
+      exchange.set('messages', [{
+        type: 'MESSAGE',
+        payload: {
+          id: new Date,
+          message: 'Welcome to the demo!',
+          username: 'redux-saga-sc-demo'
+        }
+      }])
+    }
+  })
+  worker.scServer.on('connection', socket => createStore(socket, exchange))
 }

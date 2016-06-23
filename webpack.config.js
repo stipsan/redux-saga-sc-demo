@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const devServerHostName = process.env.DEV_SERVER_HOST_NAME || 'localhost'
 const devServerPort = process.env.DEV_SERVER_PORT || '8080'
@@ -39,7 +40,15 @@ let plugins = 'production' === process.env.NODE_ENV ? [
 
 plugins = plugins.concat(new ExtractTextPlugin('[chunkhash].css', {
   allChunks: true,
-  disable: 'production' !== process.env.NODE_ENV,
+  disable: false || 'production' !== process.env.NODE_ENV,
+}))
+
+plugins = plugins.concat(new HtmlWebpackPlugin({
+  title: 'Demo Chat app built with redux-saga-sc',
+  inject: false,
+  template: require('html-webpack-template'),
+  appMountId: 'app',
+  mobile: true,
 }))
 
 /**
@@ -82,27 +91,38 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    filename: 'production' === process.env.NODE_ENV ? '[chunkhash].js' : '[name].js?[hash]',
+    filename: 'production' === process.env.NODE_ENV ? '[name].js?[chunkhash]' : '[name].js?[hash]',
     chunkFilename: 'production' === process.env.NODE_ENV ?
-                   '[chunkhash].js' : '[name].js?[chunkhash]',
+                   '[name].js?[chunkhash]' : '[name].js?[chunkhash]',
     publicPath: 'production' === process.env.NODE_ENV ?
                 '/' : `http://${devServerHostName}:${devServerPort}/`,
   },
   plugins,
+  uikitLoader: {
+    theme: 'src/client/theme.less'
+  },
   module: {
     preLoaders: [
         { test: /\.json$/, loader: 'json' },
     ],
     loaders: [
       { test: /\.js?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.scss$/, loaders: [
+      { test: /uikit\.css/, loaders: [
         'classnames',
         ExtractTextPlugin.extract(
            'style',
-           `css?!autoprefixer!less!uikit`
+           'css'
          )
       ] },
       { test: /\.svg$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      },
     ],
   },
 }

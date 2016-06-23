@@ -1,6 +1,6 @@
 const path = require('path')
 const SocketCluster = require('socketcluster').SocketCluster
-
+console.log('resolve', require.resolve('uikit'))
 new SocketCluster({
   // depending on the Heroku dyno this may vary
   workers: Number(process.env.WEB_CONCURRENCY) || 1,

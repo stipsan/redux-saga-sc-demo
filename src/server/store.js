@@ -5,7 +5,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 
 import sagas from './sagas'
 
-export default socket => {
+export default (socket, exchange) => {
   const sagaMiddleware = createSagaMiddleware()
   const middleware = applyMiddleware(sagaMiddleware)
   const store = createStore(
@@ -13,7 +13,7 @@ export default socket => {
     middleware
   )
 
-  sagaMiddleware.run(sagas, socket)
+  sagaMiddleware.run(sagas, socket, exchange)
 
   return store
 }

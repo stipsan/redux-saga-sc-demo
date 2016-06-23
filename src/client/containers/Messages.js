@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  send: message => dispatch(socketEmit({
+  send: (message, username) => dispatch(socketEmit({
     type: 'MESSAGE',
-    payload: {message}
+    payload: {message, username}
   })),
 })
 

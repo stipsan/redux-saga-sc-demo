@@ -1,10 +1,10 @@
-import { delay } from 'redux-saga'
-import { take, put } from 'redux-saga/effects'
-import { socketEmit } from 'redux-saga-sc'
+import { cps, take, put } from 'redux-saga/effects'
 
-export function *watchMessages() {
+export function *watchMessages(exchange) {
   while (true) { // eslint-disable-line no-constant-condition
     const message = yield take('MESSAGE')
-    yield put(socketEmit(message))
+    message.payload.id = new Date
+    exchange.add('messages', message)
+    yield cps([exchange, exchange.publish], 'chat', message)
   }
 }
