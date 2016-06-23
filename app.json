@@ -1,0 +1,32 @@
+{
+  "name": "Chat Demo using redux-saga-sc",
+  "description": "This app is showing how you can build a chat app using socketcluster for websockets and redux-saga for state",
+  "keywords": [
+    "example",
+    "game",
+    "nodejs",
+    "react",
+    "socketcluster",
+    "redis",
+    "redux",
+    "webpack"
+  ],
+  "repository": "https://github.com/stipsan/redux-saga-sc-demo",
+  "env": {
+    "AUTH_KEY": {
+      "description": "Used by SocketCluster",
+      "generator": "secret"
+    },
+    "TRACKING_ID": {
+      "description": "Google Analytics Tracking ID",
+      "required": false
+    }
+  },
+  "image": "heroku/nodejs",
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
+}

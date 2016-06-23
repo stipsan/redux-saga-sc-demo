@@ -1,6 +1,5 @@
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import uikit from 'uikit/dist/css/uikit.css'
-import TimeAgo from 'react-timeago'
 
 import Form from './Form'
 
@@ -39,8 +38,8 @@ const Messages = ({
     }
   }} className={uikit('uk-list', 'uk-list-line')} style={style}>
     {messages.map(payload => <li key={payload.id || new Date}>
-      <span style={{display: 'inline-block', width: '50px'}}>
-        <TimeAgo date={payload.id} formatter={timeAgoFormatter} />
+      <span style={{display: 'inline-block', width: '70px', opacity: .5}}>
+        {new Date(payload.id).toLocaleTimeString()}
       </span>
       <strong>{payload.username} </strong>
       <span>{payload.message}</span>
