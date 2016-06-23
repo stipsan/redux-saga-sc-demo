@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "hmr": "webpack && webpack-dev-server",
     "bundle": "NODE_ENV=production webpack",
+    "heroku-postbuild": "npm run bundle",
     "start": "babel-node src/server"
   },
   "engines": {
