@@ -1,4 +1,4 @@
-import { cps, take, put } from 'redux-saga/effects'
+import { cps, take } from 'redux-saga/effects'
 
 export function *watchMessages(exchange) {
   while (true) { // eslint-disable-line no-constant-condition
