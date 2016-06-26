@@ -34,25 +34,30 @@ export default class Form extends Component {
     const { onSubmit } = this.props
     const { message, username } = this.state
     return <form className="uk-form" onSubmit={this.handleSubmit} style={style}>
-      <div className="uk-grid uk-grid-small">
-        <div className="uk-width-1-4">
+      <div className="uk-flex">
+        <div className="uk-flex-item-none">
           <input
-            className="uk-width-1-1"
+            className="uk-form-width-small uk-margin-small-right"
             placeholder="anon"
             type="text"
             onChange={this.handleNameChange}
             value={username}
           />
         </div>
-        <div className="uk-width-3-4">
+        <div className="uk-flex-item-auto">
           <input
             className="uk-width-1-1"
-            placeholder="Type your chat message and hit enter"
+            placeholder="Type your chat message"
             type="text"
             onChange={this.handleChange}
             value={message}
           />
-          <input type="submit" value="Send" />
+
+        </div>
+        <div>
+          <button className="uk-button uk-button-primary uk-margin-small-left" type="submit">
+            Send
+          </button>
         </div>
       </div>
     </form>

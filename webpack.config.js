@@ -113,7 +113,7 @@ module.exports = {
     ],
     loaders: [
       { test: /\.js?$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /uikit\.css/, loaders: [
+      { test: /\.css?$/, loaders: [
         'classnames',
         ExtractTextPlugin.extract(
            'style',

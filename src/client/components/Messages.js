@@ -1,5 +1,6 @@
+import leftPad from 'left-pad'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
-import uikit from 'uikit/dist/css/uikit.css'
+import uikit from 'uikit/dist/css/uikit.almost-flat.css'
 
 import Form from './Form'
 
@@ -37,16 +38,21 @@ const Messages = ({
       }, 10)
     }
   }} className={uikit('uk-list', 'uk-list-line')} style={style}>
-    {messages.map(payload => <li key={payload.id || new Date}>
-      <span style={{display: 'inline-block', width: '70px', opacity: .5}}>
-        {new Date(payload.id).toLocaleTimeString()}
+    {messages.map(payload => <li key={payload.id}>
+      <span
+        style={{display: 'inline-block', width: '70px', opacity: .5}}
+        title={payload.when.toLocaleString()}
+      >
+        {leftPad(payload.when.getHours(), 2, 0)}:
+        {leftPad(payload.when.getMinutes(), 2, 0)}:
+        {leftPad(payload.when.getSeconds(), 2, 0)}
       </span>
       <strong>{payload.username} </strong>
       <span>{payload.message}</span>
     </li>)}
     <li key="bottom-spacer" />
   </ul>
-  <Form onSubmit={send} uikit={uikit} />
+  <Form onSubmit={send} />
 </div>
 
 export default Messages
