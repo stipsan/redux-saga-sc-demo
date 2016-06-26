@@ -42,6 +42,7 @@ export default class Form extends Component {
             type="text"
             onChange={this.handleNameChange}
             value={username}
+            maxLength={20}
           />
         </div>
         <div className="uk-flex-item-auto">
@@ -51,6 +52,7 @@ export default class Form extends Component {
             type="text"
             onChange={this.handleChange}
             value={message}
+            maxLength={600}
           />
 
         </div>
