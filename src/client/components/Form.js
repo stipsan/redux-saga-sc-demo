@@ -31,13 +31,13 @@ export default class Form extends Component {
   }
 
   render() {
-    const { onSubmit, uikit } = this.props
+    const { onSubmit } = this.props
     const { message, username } = this.state
-    return <form className={uikit('uk-form')} onSubmit={this.handleSubmit} style={style}>
+    return <form className="uk-form" onSubmit={this.handleSubmit} style={style}>
       <div className="uk-grid uk-grid-small">
         <div className="uk-width-1-4">
           <input
-            className={uikit('uk-width-1-1')}
+            className="uk-width-1-1"
             placeholder="anon"
             type="text"
             onChange={this.handleNameChange}
@@ -46,13 +46,13 @@ export default class Form extends Component {
         </div>
         <div className="uk-width-3-4">
           <input
-            className={uikit('uk-width-1-1')}
+            className="uk-width-1-1"
             placeholder="Type your chat message and hit enter"
             type="text"
             onChange={this.handleChange}
             value={message}
           />
-          <button type="submit" style={{display: 'none'}} />
+          <input type="submit" value="Send" />
         </div>
       </div>
     </form>
