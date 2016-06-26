@@ -2,8 +2,6 @@ import compression from 'compression'
 import express from 'express'
 
 import createStore from './store'
-import html from './html'
-import { getAnalyticsSnippet } from './ga'
 
 export const run = worker => {
   const app = express()
@@ -16,8 +14,6 @@ export const run = worker => {
 
   app.use(express.static('public', { maxAge: 86400000 * 365, index: false }))
   app.use(express.static('public', { index: 'index.html' }))
-
-  app.use(html())
 
   worker.httpServer.on('request', app)
 
