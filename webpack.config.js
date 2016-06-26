@@ -43,12 +43,18 @@ plugins = plugins.concat(new ExtractTextPlugin('[chunkhash].css', {
   disable: false || 'production' !== process.env.NODE_ENV,
 }))
 
+const googleAnalytics = process.env.TRACKING_ID ? {
+  trackingId: process.env.TRACKING_ID,
+  pageViewOnLoad: true
+} : false
+
 plugins = plugins.concat(new HtmlWebpackPlugin({
   title: 'Demo Chat app built with redux-saga-sc',
   inject: false,
   template: require('html-webpack-template'),
   appMountId: 'app',
   mobile: true,
+  googleAnalytics,
 }))
 
 /**
