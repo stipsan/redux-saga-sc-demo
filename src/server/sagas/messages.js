@@ -5,6 +5,7 @@ export function *watchMessages(exchange) {
     const message = yield take('MESSAGE')
     message.payload.id = new Date
     exchange.add('messages', message)
+    console.log('added message', message)
     yield cps([exchange, exchange.publish], 'chat', message)
   }
 }
