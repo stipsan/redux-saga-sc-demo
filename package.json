@@ -52,7 +52,7 @@
     "react-timeago": "3.0.0",
     "redux": "3.5.2",
     "redux-saga": "0.10.5",
-    "redux-saga-sc": "2.0.0-alpha.2",
+    "redux-saga-sc": "2.0.0",
     "scroll-into-view-if-needed": "1.0.2",
     "socketcluster": "4.6.2",
     "socketcluster-client": "4.3.19",
