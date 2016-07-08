@@ -46,7 +46,7 @@
     "left-pad": "1.1.0",
     "less": "2.7.1",
     "less-loader": "2.2.3",
-    "react": "15.2.0",
+    "react": "15.2.1",
     "react-dom": "15.2.0",
     "react-redux": "4.4.5",
     "react-timeago": "3.0.0",
