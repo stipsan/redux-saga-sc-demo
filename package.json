@@ -54,7 +54,7 @@
     "redux-saga": "0.11.0",
     "redux-saga-sc": "2.0.1",
     "scroll-into-view-if-needed": "1.0.2",
-    "socketcluster": "4.7.1",
+    "socketcluster": "4.8.1",
     "socketcluster-client": "4.3.19",
     "stattic-parseurl": "0.1.0",
     "style-loader": "0.13.1",
