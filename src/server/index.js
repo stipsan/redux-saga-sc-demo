@@ -6,8 +6,6 @@ new SocketCluster({
   workers: Number(process.env.WEB_CONCURRENCY) || 1,
   // heroku sets the port used on the intranet
   port: process.env.PORT || 5000,
-  // the uws WebSockets engine is faster by many orders of magnitude
-  wsEngine: 'uws', //
   // everything goes through redux stores
   allowClientPublish: false,
   // generated automatically if using the Heroku deploy button
