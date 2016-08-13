@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Button} from 'uikit-react'
 
 // we're freezing it to unlock more react optimizations
 const style = Object.freeze({
@@ -57,9 +58,9 @@ export default class Form extends Component {
 
         </div>
         <div>
-          <button className="uk-button uk-button-primary uk-margin-small-left" type="submit">
+          <Button className="uk-margin-small-left" type="submit" primary disabled={!message.trim().length}>
             Send
-          </button>
+          </Button>
         </div>
       </div>
     </form>

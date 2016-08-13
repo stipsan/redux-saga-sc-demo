@@ -59,6 +59,7 @@
     "stattic-parseurl": "0.1.0",
     "style-loader": "0.13.1",
     "uikit": "2.26.3",
+    "uikit-react": "0.2.0",
     "url-loader": "0.5.7",
     "uws": "0.7.0",
     "webpack": "2.1.0-beta.13"
