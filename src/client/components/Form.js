@@ -1,6 +1,13 @@
 import {Component} from 'react'
 import {Button} from 'uikit-react'
 
+const supportWebkitSticky = (function () {
+    var elem = document.createElement('div');
+    elem.style.cssText = 'position:-webkit-sticky';
+    if (elem.style.position.match('-webkit-sticky')) return true;
+    return false;
+}());
+
 // we're freezing it to unlock more react optimizations
 const style = Object.freeze({
   boxShadow: '#dddddd 0 -1px 0px',
@@ -9,7 +16,7 @@ const style = Object.freeze({
   background: 'rgba(255, 255, 255, 0.5)',
   WebkitBackdropFilter: 'blur(15px) saturate(300%)',
   bottom: '0px',
-  position: '-webkit-sticky',
+  position: supportWebkitSticky && '-webkit-sticky' || 'sticky',
 })
 
 export default class Form extends Component {

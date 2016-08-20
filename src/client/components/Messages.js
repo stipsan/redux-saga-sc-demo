@@ -10,6 +10,8 @@ const supportSticky = (function () {
     var elem = document.createElement('div');
     elem.style.cssText = 'position:-webkit-sticky';
     if (elem.style.position.match('-webkit-sticky')) return true;
+    elem.style.cssText = 'position:sticky';
+    if (elem.style.position.match('sticky')) return true;
     return false;
 }());
 
