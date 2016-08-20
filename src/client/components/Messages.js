@@ -57,6 +57,7 @@ const Messages = ({
   >
     <ul ref={(node) => {
       if(node && node.childNodes.length > 0) {
+        clearTimeout(throttle)
         throttle = setTimeout(() => {
           scrollIntoViewIfNeeded(node.childNodes[node.childNodes.length - 1], false, {
             duration: 150
