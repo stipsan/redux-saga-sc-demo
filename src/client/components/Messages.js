@@ -12,6 +12,7 @@ const wrapperStyle = Object.freeze({
 
 const listStyle = Object.freeze({
   overflow: 'auto',
+  WebkitOverflowScrolling: 'touch',
   marginBottom: '0px',
   boxSizing: 'border-box',
   paddingTop: '15px',
