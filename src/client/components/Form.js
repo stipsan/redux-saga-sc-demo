@@ -8,7 +8,7 @@ const style = Object.freeze({
   paddingBottom: '5px',
   background: 'white',
   bottom: '0px',
-  position: 'sticky',
+  position: '-webkit-sticky',
 })
 
 export default class Form extends Component {
