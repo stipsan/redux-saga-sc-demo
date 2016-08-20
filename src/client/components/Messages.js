@@ -3,8 +3,14 @@ import './Messages.css'
 import leftPad from 'left-pad'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import uikit from 'uikit/dist/css/uikit.almost-flat.css'
+import Remarkable from 'remarkable'
 
 import Form from './Form'
+
+const md = new Remarkable({
+  linkify: true,
+  linkTarget: 'new',
+})
 
 const supportSticky = (function () {
     var elem = document.createElement('div');
@@ -18,11 +24,11 @@ const supportSticky = (function () {
 const wrapperStyle = Object.freeze({
   height: '100vh',
   overflow: supportSticky && 'auto',
+  WebkitOverflowScrolling: 'touch',
 })
 
 const listStyle = Object.freeze({
   overflow: !supportSticky && 'auto',
-  flex: supportSticky && 'none',
   WebkitOverflowScrolling: 'touch',
   marginBottom: '0px',
   boxSizing: 'border-box',
@@ -36,6 +42,11 @@ const timeAgoFormatter = (value, unit) => {
 }
 
 let throttle = false
+
+let listClassName = 'uk-list uk-list-line uk-margin-left uk-margin-right'
+if(supportSticky) {
+  listClassName += ' uk-flex-item-none'
+}
 
 const Messages = ({
   messages,
@@ -53,7 +64,7 @@ const Messages = ({
           })
         }, 10)
       }
-    }} className="uk-list uk-list-line uk-margin-left uk-margin-right" style={listStyle}>
+    }} className={listClassName} style={listStyle}>
       {messages.map(payload => <li key={payload.id}>
         <span
           style={{display: 'inline-block', width: '70px', opacity: .5}}
@@ -64,7 +75,7 @@ const Messages = ({
           {leftPad(payload.when.getSeconds(), 2, 0)}
         </span>
         <strong style={{color: payload.color}}>{payload.username} </strong>
-        <span>{payload.message}</span>
+        <span dangerouslySetInnerHTML={{__html: md.render(payload.message)}} />
       </li>)}
     </ul>
     <Form onSubmit={send} />

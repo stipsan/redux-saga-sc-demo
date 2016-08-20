@@ -32,7 +32,8 @@ const defaultColors = [
 export function *watchMessages(socket, exchange) {
   while (true) { // eslint-disable-line no-constant-condition
     const message = yield take('MESSAGE')
-    message.payload.id = new Date
+    message.payload.id = new Date + Math.random()
+    message.payload.when = new Date
     message.payload.color = defaultColors[sumChars(socket.id) % defaultColors.length]
     exchange.add('messages', message)
     yield cps([exchange, exchange.publish], 'chat', message)

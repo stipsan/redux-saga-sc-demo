@@ -5,7 +5,7 @@ export const messages = (state = [], action) => {
     return [...state, {
       id: new Date,
       ...action.payload,
-      when: new Date(action.payload.id)
+      when: new Date(action.payload.when)
     }]
   default:
     return state

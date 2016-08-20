@@ -20,14 +20,19 @@ export const run = worker => {
   const exchange = worker.exchange
   exchange.get('messages', (err, messages) => {
     if(messages === undefined) {
-      exchange.set('messages', [{
-        type: 'MESSAGE',
-        payload: {
-          id: new Date,
+      exchange.set('messages', [
+        {
           message: 'Welcome to the demo!',
           username: 'redux-saga-sc-demo'
+        },
+        {
+          color: 'teal',
+          message: 'You can check the sourcecode on [GitHub](https://github.com/stipsan/redux-saga-sc-demo).',
+          username: 'stipsan'
         }
-      }])
+      ].map(message => ({type: 'MESSAGE', payload: {
+        ...message, id: new Date + Math.random(), when: new Date
+      }})))
     }
   })
   worker.scServer.on('connection', socket => createStore(socket, exchange))

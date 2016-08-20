@@ -7,13 +7,19 @@ const supportWebkitSticky = (function () {
     if (elem.style.position.match('-webkit-sticky')) return true;
     return false;
 }());
+const supportWebkitBackdropFilter = (function () {
+    var elem = document.createElement('div');
+    elem.style.cssText = 'position:-webkit-backdrop-filter';
+    if (elem.style.position.match('-webkit-backdrop-filter')) return true;
+    return false;
+}());
 
 // we're freezing it to unlock more react optimizations
 const style = Object.freeze({
   boxShadow: '#dddddd 0 -1px 0px',
   paddingTop: '10px',
   paddingBottom: '5px',
-  background: 'rgba(255, 255, 255, 0.5)',
+  background: supportWebkitBackdropFilter ? 'rgba(255, 255, 255, 0.5)' : 'white',
   WebkitBackdropFilter: 'blur(15px) saturate(300%)',
   bottom: '0px',
   position: supportWebkitSticky && '-webkit-sticky' || 'sticky',
