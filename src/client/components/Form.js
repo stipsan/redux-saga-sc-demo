@@ -23,7 +23,7 @@ export default class Form extends Component {
   handleSubmit = event => {
     event.preventDefault()
     if(this.state.message.trim().length > 0) {
-      this.props.onSubmit(this.state.message, this.state.username)
+      this.props.onSubmit(this.state.message, this.state.username.trim() ? this.state.username : 'anon' )
       this.setState({message: ''})
     }
   }
