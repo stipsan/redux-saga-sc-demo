@@ -6,7 +6,8 @@ const style = Object.freeze({
   boxShadow: '#dddddd 0 -1px 0px',
   paddingTop: '10px',
   paddingBottom: '5px',
-  background: 'white',
+  background: 'rgba(255, 255, 255, 0.5)',
+  WebkitBackdropFilter: 'blur(15px) saturate(300%)',
   bottom: '0px',
   position: '-webkit-sticky',
 })
@@ -33,7 +34,7 @@ export default class Form extends Component {
     const { onSubmit } = this.props
     const { message, username } = this.state
     return <form className="uk-form uk-flex-item-none" onSubmit={this.handleSubmit} style={style}>
-      <div className="uk-flex uk-flex-wrap">
+      <div className="uk-flex uk-flex-wrap uk-margin-left uk-margin-right">
         <div className="uk-flex-item-none uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
           <input
             className="uk-form-blank uk-form-large uk-text-right"

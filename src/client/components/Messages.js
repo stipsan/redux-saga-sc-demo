@@ -40,7 +40,7 @@ const Messages = ({
   send
 }) => (
   <div
-    className="uk-flex uk-flex-column uk-flex-space-between uk-margin-left uk-margin-right"
+    className="uk-flex uk-flex-column uk-flex-space-between"
     style={wrapperStyle}
   >
     <ul ref={(node) => {
@@ -51,7 +51,7 @@ const Messages = ({
           })
         }, 10)
       }
-    }} className="uk-list uk-list-line" style={listStyle}>
+    }} className="uk-list uk-list-line uk-margin-left uk-margin-right" style={listStyle}>
       {messages.map(payload => <li key={payload.id}>
         <span
           style={{display: 'inline-block', width: '70px', opacity: .5}}
@@ -61,7 +61,7 @@ const Messages = ({
           {leftPad(payload.when.getMinutes(), 2, 0)}:
           {leftPad(payload.when.getSeconds(), 2, 0)}
         </span>
-        <strong>{payload.username} </strong>
+        <strong style={{color: payload.color}}>{payload.username} </strong>
         <span>{payload.message}</span>
       </li>)}
     </ul>
