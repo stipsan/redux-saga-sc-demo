@@ -8,11 +8,19 @@ export function *watchExchange(socket, exchange) {
   const messagesTotal = messages.length
   for(let i = 0; i < messagesTotal; i++) {
     const message = messages[i]
-    yield put(socketEmit(message))
+    try {
+      yield put(socketEmit(message))
+    } catch(error) {
+      console.error('Caught during socketEmit', error)
+    }
   }
 
   while (true) { // eslint-disable-line
     const action = yield take(chan)
-    yield put(socketEmit(action))
+    try {
+      yield put(socketEmit(action))
+    } catch(error) {
+      console.error('Caught during socketEmit', error)
+    }
   }
 }
