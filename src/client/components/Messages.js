@@ -32,6 +32,7 @@ const listStyle = Object.freeze({
   boxSizing: 'border-box',
   paddingTop: '15px',
   paddingBottom: '0px',
+  minHeight: supportSticky && '100vh',
 })
 
 const timeAgoFormatter = (value, unit) => {
