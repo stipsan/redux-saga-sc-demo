@@ -16,6 +16,10 @@ const md = new Remarkable({
   linkTarget: 'new',
 })
 
+const wrapperStyle = Object.freeze({
+  height: '100vh',
+})
+
 const timeAgoFormatter = (value, unit) => {
   const formattedUnit = 'monh' === unit ? 'M' : unit.slice(0, 1)
   return `${value} ${formattedUnit}`
@@ -47,14 +51,15 @@ export default class Messages extends Component {
   }
   render() {
     const {messages, send} = this.props
+    const {renderCell, renderMessage} = this
     console.log(messages, messages.length)
     return (
-      <div className="uk-flex uk-flex-column uk-flex-space-between">
+      <div className="uk-flex uk-flex-column uk-flex-space-between" style={wrapperStyle}>
         <div className="uk-flex-item-auto uk-margin-left uk-margin-right">
           <AutoSizer>
             {({ height, width }) => (
               <CellMeasurer
-                cellRenderer={this.renderCell}
+                cellRenderer={renderCell}
                 columnCount={1}
                 rowCount={messages.length}
                 width={width}
@@ -64,7 +69,8 @@ export default class Messages extends Component {
                     height={height}
                     rowHeight={getRowHeight}
                     rowCount={messages.length}
-                    rowRenderer={this.renderMessage}
+                    rows={messages}
+                    rowRenderer={renderMessage}
                     scrollToIndex={Math.max(0, messages.length - 1)}
                     width={width}
                   />

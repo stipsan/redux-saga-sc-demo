@@ -1,7 +1,3 @@
-html, body, #app, #app > * {
-  height: 100%;
-}
-
 .uk-list > :last-child {
   padding-bottom: 5px;
 }

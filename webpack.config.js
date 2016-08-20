@@ -7,30 +7,17 @@ const devServerHostName = process.env.DEV_SERVER_HOST_NAME || 'localhost'
 const devServerPort = process.env.DEV_SERVER_PORT || '8080'
 
 let plugins = 'production' === process.env.NODE_ENV ? [
-  new webpack.LoaderOptionsPlugin({
-    minimize: true,
-    debug: false
-  }),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      unsafe: true,
-      drop_console: true,
       warnings: false,
-      pure_getters: true,
-      unsafe_comps: true,
+      drop_console: true,
     },
     comments: false,
-    mangle: {
-      sort: true,
-      toplevel: true,
-      eval: true,
-      properties: true,
-    }
+  }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify('production'),
   }),
 ] : [
-  new webpack.LoaderOptionsPlugin({
-    debug: true
-  }),
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.DefinePlugin({
@@ -88,6 +75,7 @@ const entry = 'production' === process.env.NODE_ENV ? {
 module.exports = {
   devtool: 'production' === process.env.NODE_ENV ? 'source-map' : 'cheap-module-eval-source-map',
   entry,
+  debug: 'production' !== process.env.NODE_ENV,
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     publicPath: `http://${devServerHostName}:${devServerPort}/`,
