@@ -31,7 +31,7 @@ export default class Form extends Component {
   render() {
     const { onSubmit } = this.props
     const { message, username } = this.state
-    return <form className="uk-form" onSubmit={this.handleSubmit} style={style}>
+    return <form className="uk-form uk-flex-item-none" onSubmit={this.handleSubmit} style={style}>
       <div className="uk-flex uk-flex-wrap">
         <div className="uk-flex-item-none uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
           <input
