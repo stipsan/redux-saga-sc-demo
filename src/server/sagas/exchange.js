@@ -12,11 +12,13 @@ function *emit(action) {
 export function *watchExchange(socket, exchange) {
   const chan = yield call(createChannelSubscription, exchange, 'chat')
 
+  /*
   // prevent memory leaks
   socket.on('disconnect', () => {
     console.log('disconnect happened, attempting to close channel')
     chan.close()
   })
+  //*/
 
   const messages = yield cps([exchange, exchange.get], 'messages')
   const messagesTotal = messages.length
