@@ -76,14 +76,14 @@ export function *watchMessages(socket, exchange) {
           }
         }
         exchange.add('messages', message)
-        yield cps([exchange, exchange.publish], 'chat', message)
+        exchange.publish('chat', message)
       }
     } else {
       message.payload.id = new Date + Math.random()
       message.payload.when = new Date
       message.payload.color = defaultColors[sumChars(socket.id) % defaultColors.length]
       exchange.add('messages', message)
-      yield cps([exchange, exchange.publish], 'chat', message)
+      exchange.publish('chat', message)
     }
   }
 }
