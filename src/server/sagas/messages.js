@@ -32,10 +32,58 @@ const defaultColors = [
 export function *watchMessages(socket, exchange) {
   while (true) { // eslint-disable-line no-constant-condition
     const message = yield take('MESSAGE')
-    message.payload.id = new Date + Math.random()
-    message.payload.when = new Date
-    message.payload.color = defaultColors[sumChars(socket.id) % defaultColors.length]
-    exchange.add('messages', message)
-    yield cps([exchange, exchange.publish], 'chat', message)
+    if(message.payload.username === 'emoji' && message.payload.message === 'flags') {
+      const flags = [
+        '🇦🇫🇦🇽🇦🇱🇩🇿',
+        '🇦🇸🇦🇩🇦🇴🇦🇮',
+        '🇦🇶🇦🇬🇦🇷🇦🇲',
+        '🇦🇼🇦🇺🇦🇹🇦🇿',
+        '🇧🇸🇧🇭🇧🇩🇧🇧',
+        '🇧🇾🇧🇪🇧🇿🇧🇯',
+        '🇧🇲🇧🇹🇧🇴🇧🇶',
+        '🇧🇦🇧🇼🇧🇷🇮🇴',
+        '🇻🇬🇧🇳🇧🇬🇧🇫',
+        '🇧🇮🇨🇻🇰🇭🇨🇲',
+        '🇨🇦🇮🇨🇰🇾🇨🇫',
+        '🇹🇩🇨🇱🇨🇳🇨🇽',
+        '🇨🇨🇨🇴🇰🇲🇨🇬',
+        '🇨🇩🇨🇰🇨🇷🇭🇷',
+        '🇨🇺🇨🇼🇨🇾🇨🇿',
+        '🇩🇰🇩🇯🇩🇲🇩🇴',
+        '🇪🇨🇪🇬🇸🇻🇬🇶',
+        '🇪🇷🇪🇪🇪🇹🇪🇺',
+        '🇫🇰🇫🇴🇫🇯🇫🇮',
+        '🇫🇷🇬🇫🇵🇫🇹🇫',
+        '🇬🇦🇬🇲🇬🇪🇩🇪',
+        '🇬🇭🇬🇮🇬🇷🇬🇱',
+        '🇬🇩🇬🇵🇬🇺🇬🇹',
+        '🇬🇬🇬🇳🇬🇼🇬🇾',
+        '🇭🇹🇭🇳🇭🇰🇭🇺',
+        '🇮🇸🇮🇳🇮🇩🇮🇷',
+        '🇮🇶🇮🇪🇮🇲🇮🇱',
+        '🇮🇹🇨🇮🇯🇲🇯🇵',
+        '🇯🇪🇯🇴🇰🇿🇰🇪',
+        '🇰🇮🇽🇰🇰🇼🇰🇬'
+      ]
+      for(let flag of flags) {
+        const message = {
+          type: 'MESSAGE',
+          payload: {
+            id: new Date + Math.random(),
+            when: new Date,
+            username: '😁',
+            message: flag
+          }
+        }
+        exchange.add('messages', message)
+        yield cps([exchange, exchange.publish], 'chat', message)
+      }
+    } else {
+      message.payload.id = new Date + Math.random()
+      message.payload.when = new Date
+      message.payload.color = defaultColors[sumChars(socket.id) % defaultColors.length]
+      exchange.add('messages', message)
+      yield cps([exchange, exchange.publish], 'chat', message)
+    }
   }
 }
