@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/stipsan/redux-saga-sc-demo#readme",
   "dependencies": {
-    "babel-cli": "6.10.1",
+    "babel-cli": "6.11.4",
     "babel-core": "6.13.2",
     "babel-loader": "6.2.5",
     "babel-polyfill": "6.13.0",
@@ -54,7 +54,7 @@
     "react-virtualized": "7.19.4",
     "redux": "3.5.2",
     "redux-saga": "0.11.0",
-    "redux-saga-sc": "2.0.1",
+    "redux-saga-sc": "2.0.2",
     "remarkable": "1.6.2",
     "scroll-into-view-if-needed": "1.0.2",
     "socketcluster": "5.0.7",
