@@ -36,7 +36,7 @@ export default class Form extends Component {
       <div className="uk-flex uk-flex-wrap">
         <div className="uk-flex-item-none uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
           <input
-            className="uk-form-blank uk-form-large"
+            className="uk-form-blank uk-form-large uk-text-right"
             placeholder="anon"
             type="text"
             onChange={this.handleNameChange}

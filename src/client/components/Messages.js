@@ -6,12 +6,21 @@ import uikit from 'uikit/dist/css/uikit.almost-flat.css'
 
 import Form from './Form'
 
+const supportSticky = (function () {
+    var elem = document.createElement('div');
+    elem.style.cssText = 'position:-webkit-sticky';
+    if (elem.style.position.match('-webkit-sticky')) return true;
+    return false;
+}());
+
 const wrapperStyle = Object.freeze({
-  height: '100vh'
+  height: '100vh',
+  overflow: supportSticky && 'auto',
 })
 
 const listStyle = Object.freeze({
-  overflow: 'auto',
+  overflow: !supportSticky && 'auto',
+  flex: supportSticky && 'none',
   WebkitOverflowScrolling: 'touch',
   marginBottom: '0px',
   boxSizing: 'border-box',
