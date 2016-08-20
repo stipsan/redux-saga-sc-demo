@@ -11,8 +11,8 @@
     "start": "babel-node src/server"
   },
   "engines": {
-    "node": "6.2.0",
-    "npm": "3.9.0"
+    "node": "6.4.0",
+    "npm": "3.9.5"
   },
   "repository": {
     "type": "git",
