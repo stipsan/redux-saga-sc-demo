@@ -1,3 +1,5 @@
+import './Messages.css'
+
 import leftPad from 'left-pad'
 import scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
 import uikit from 'uikit/dist/css/uikit.almost-flat.css'
@@ -6,15 +8,10 @@ import Form from './Form'
 
 const style = Object.freeze({
   overflow: 'auto',
-  marginBottom: '45px',
+  marginBottom: '0px',
   boxSizing: 'border-box',
-  position: 'absolute',
-  left: '15px',
-  right: '15px',
-  bottom: '0px',
-  top: '0px',
   paddingTop: '15px',
-  paddingBottom: '15px',
+  paddingBottom: '0px',
 })
 
 const timeAgoFormatter = (value, unit) => {
@@ -27,9 +24,8 @@ let throttle = false
 const Messages = ({
   messages,
   send
-}) => <div className={uikit('uk-margin-left uk-margin-right')}>
+}) => <div className="uk-flex uk-flex-column uk-flex-space-between uk-height-viewport uk-margin-left uk-margin-right">
   <ul ref={(node) => {
-    console.log('ref', node)
     if(node && node.childNodes.length > 0) {
       throttle = setTimeout(() => {
         scrollIntoViewIfNeeded(node.childNodes[node.childNodes.length - 1], false, {
@@ -37,7 +33,7 @@ const Messages = ({
         })
       }, 10)
     }
-  }} className={uikit('uk-list', 'uk-list-line')} style={style}>
+  }} className="uk-list uk-list-line" style={style}>
     {messages.map(payload => <li key={payload.id}>
       <span
         style={{display: 'inline-block', width: '70px', opacity: .5}}
@@ -50,7 +46,6 @@ const Messages = ({
       <strong>{payload.username} </strong>
       <span>{payload.message}</span>
     </li>)}
-    <li key="bottom-spacer" />
   </ul>
   <Form onSubmit={send} />
 </div>
