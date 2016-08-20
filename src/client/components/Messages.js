@@ -22,9 +22,7 @@ const supportSticky = (function () {
 }());
 
 const wrapperStyle = Object.freeze({
-  height: '100vh',
-  overflow: supportSticky && 'auto',
-  WebkitOverflowScrolling: 'touch',
+  height: !supportSticky && '100vh',
 })
 
 const listStyle = Object.freeze({

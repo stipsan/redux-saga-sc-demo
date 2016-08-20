@@ -10,7 +10,7 @@ const supportWebkitSticky = (function () {
 const supportWebkitBackdropFilter = (function () {
     var elem = document.createElement('div');
     elem.style.cssText = '-webkit-backdrop-filter:blur(1px)';
-    if (elem.style.WebkitBackdropFilter.match('blur(1px)')) return true;
+    if (elem.style.WebkitBackdropFilter && elem.style.WebkitBackdropFilter.match('blur(1px)')) return true;
     return false;
 }());
 
