@@ -16,10 +16,6 @@ const md = new Remarkable({
   linkTarget: 'new',
 })
 
-const wrapperStyle = Object.freeze({
-  height: '100vh',
-})
-
 const timeAgoFormatter = (value, unit) => {
   const formattedUnit = 'monh' === unit ? 'M' : unit.slice(0, 1)
   return `${value} ${formattedUnit}`
@@ -53,10 +49,7 @@ export default class Messages extends Component {
     const {messages, send} = this.props
     console.log(messages, messages.length)
     return (
-      <div
-        className="uk-flex uk-flex-column uk-flex-space-between"
-        style={wrapperStyle}
-      >
+      <div className="uk-flex uk-flex-column uk-flex-space-between">
         <div className="uk-flex-item-auto uk-margin-left uk-margin-right">
           <AutoSizer>
             {({ height, width }) => (
