@@ -54,7 +54,7 @@ export default class Messages extends Component {
     const {renderCell, renderMessage} = this
     console.log(messages, messages.length)
     return (
-      <div className="uk-flex uk-flex-column uk-flex-space-between" style={wrapperStyle}>
+      <div className="uk-flex uk-flex-column uk-flex-space-between">
         <div className="uk-flex-item-auto uk-margin-left uk-margin-right">
           <AutoSizer>
             {({ height, width }) => (
