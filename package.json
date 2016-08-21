@@ -54,7 +54,7 @@
     "react-virtualized": "7.19.4",
     "redux": "3.5.2",
     "redux-saga": "0.11.0",
-    "redux-saga-sc": "2.0.2",
+    "redux-saga-sc": "2.0.3",
     "remarkable": "1.6.2",
     "scroll-into-view-if-needed": "1.0.2",
     "socketcluster": "5.0.7",
