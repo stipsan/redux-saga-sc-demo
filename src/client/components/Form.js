@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Button} from 'uikit-react'
+import {Button, Input} from 'uikit-react'
 
 const supportWebkitSticky = (function () {
     var elem = document.createElement('div');
@@ -49,27 +49,29 @@ export default class Form extends Component {
     return <form className="uk-form uk-flex-item-none" onSubmit={this.handleSubmit} style={style}>
       <div className="uk-flex uk-flex-wrap uk-margin-left uk-margin-right">
         <div className="uk-flex-item-none uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
-          <input
-            className="uk-form-blank uk-form-large uk-text-right"
-            placeholder="anon"
-            type="text"
-            onChange={this.handleNameChange}
-            value={username}
-            size={Math.max(4, username.length)}
+          <Input
+            blank
+            className="uk-text-right"
+            large
             maxLength={20}
+            onChange={this.handleNameChange}
+            placeholder="anon"
+            size={Math.max(4, username.length)}
+            type="text"
+            value={username}
           />
         </div>
         <div className="uk-flex-item-auto uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
-          <input
-            className="uk-width-1-1 uk-margin-small uk-form-large"
-            placeholder="Type your chat message"
-            type="text"
-            onChange={this.handleChange}
-            value={message}
-            maxLength={600}
+          <Input
             autoFocus
+            className="uk-margin-small"
+            large
+            maxLength={600}
+            onChange={this.handleChange}
+            placeholder="Type your chat message"
+            value={message}
+            width="full"
           />
-
         </div>
         <div className="uk-margin-small-bottom uk-margin-small-left uk-margin-small-right">
           <Button large type="submit" primary disabled={!message.trim().length}>
