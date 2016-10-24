@@ -64,7 +64,7 @@
     "uikit": "2.27.2",
     "uikit-react": "0.6.13",
     "url-loader": "0.5.7",
-    "uws": "0.10.12",
+    "uws": "0.10.13",
     "webpack": "1.13.2"
   },
   "devDependencies": {
