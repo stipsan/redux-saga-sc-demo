@@ -58,7 +58,7 @@
     "remarkable": "1.7.0",
     "scroll-into-view-if-needed": "1.0.5",
     "socketcluster": "5.0.22",
-    "socketcluster-client": "5.0.19",
+    "socketcluster-client": "5.0.21",
     "stattic-parseurl": "0.1.0",
     "style-loader": "0.13.1",
     "uikit": "2.27.2",
