@@ -40,7 +40,7 @@
     "express-history-spa-fallback": "3.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.10.0",
-    "html-webpack-plugin": "2.27.1",
+    "html-webpack-plugin": "2.28.0",
     "html-webpack-template": "6.0.1",
     "json-loader": "0.5.4",
     "left-pad": "1.1.3",
