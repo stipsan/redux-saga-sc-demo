@@ -57,7 +57,7 @@
     "redux-saga-sc": "2.0.5",
     "remarkable": "1.7.0",
     "scroll-into-view-if-needed": "1.0.6",
-    "socketcluster": "5.7.1",
+    "socketcluster": "5.8.0",
     "socketcluster-client": "5.2.5",
     "stattic-parseurl": "0.1.0",
     "style-loader": "0.13.2",
